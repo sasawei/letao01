@@ -26,6 +26,9 @@ $(function () {
             min: 2,
             max: 12,
             message: '用户名长度必须为6到12位'
+          },
+          callback:{
+            message:'用户名错误'
           }
         }
       },
@@ -41,6 +44,9 @@ $(function () {
             min: 2,
             max: 12,
             message: '密码长度必须为6到12位'
+          },
+          callback:{
+            message:'密码错误'
           }
         }
 
@@ -65,11 +71,20 @@ $(function () {
       success:function(info){
        console.log(info)
        if(info.error == 1000){
-         alert('用户名不存在')
-         return
+        //  alert('用户名不存在')
+        //更新表单的校验状态，更新为失败
+        /**
+         * updateStatus
+         * 参数一：field
+         * 参数二：status
+         * 参数三：validator
+         */
+        $('#form').data('bootstrapValidator').updateStatus('username','INVALID','callback')
+        //  return
        }
        if(info.error == 1001){
-        alert('密码错误')
+        // alert('密码错误')
+        $('#form').data('bootstrapValidator').updateStatus('password','INVALID','callback')
         return
       }
       if(info.success){
