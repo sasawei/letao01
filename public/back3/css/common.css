@@ -28,6 +28,12 @@ a:active{
 .red{
   color:#A94442;
 }
+/* 所有的表格都垂直水平居中 */
+.table.table-bordered th,
+.table.table-bordered td{
+  text-align: center;
+  vertical-align: middle;
+}
 /* 首页侧边栏 */
 
 
