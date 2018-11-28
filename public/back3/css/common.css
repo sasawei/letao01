@@ -4,3 +4,143 @@
 .mg-t{
   margin-top: 150px;
 }
+html,body{
+  height: 100%;
+}
+.mt-50{
+  margin-top: 50px;
+}
+ul,ol{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+a:link,
+a:visited,
+a:hover,
+a:active{
+  text-decoration: none;
+}
+
+.mt-20{
+  margin-top: 20px;
+}
+.red{
+  color:#A94442;
+}
+/* 首页侧边栏 */
+
+
+
+.lt_container{
+  height: 100%;
+}
+.lt_aside{
+  width: 180px;
+  height: 100%;
+  background-color: #222D32;
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: all 1s;
+}
+.lt_aside.hiddenmenu{
+  left:-180px;
+}
+
+.lt_aside .brand{
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  background-color: #367FA9;
+}
+.lt_aside .brand p{
+ text-align: center;
+ color:#fff;
+ font-size: 25px;
+}
+.lt_aside .user {
+  text-align: center;
+}
+
+.lt_aside .user img{
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+.lt_aside .user p{
+  font-size: 20px;
+  color:#fff;
+  margin-top: 40px;
+}
+.lt_aside .category .active{
+  background-color: #1D1F21;
+}
+
+.lt_aside .category a{
+  display: block;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  padding-left:40px;
+  /* font-size: 20px; */
+  color:#fff;
+border-left: 3px solid transparent;
+}
+.lt_aside .category a.active{
+  border-left: 3px solid #069;
+}
+.lt_aside .category i{
+  margin-right: 5px;
+
+}
+.lt_aside .category .box a{
+padding-left:60px;
+}
+.lt_topbar{
+  width: 100%;
+  height: 50px;
+  background-color: #069;
+  padding-left: 180px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: all 1s;
+  z-index:998;
+}
+.lt_topbar.hiddenmenu{
+  padding-left: 0;
+}
+.lt_topbar a{
+ width: 50px;
+ height: 50px;
+ display:block;
+ text-align: center;
+ line-height: 50px;
+}
+.lt_topbar a i{
+  font-size:25px;
+  color:#fff;
+}
+.lt_main{
+  padding-left: 180px;
+  padding-top: 50px;
+  transition:all 1s;
+}
+.lt_main.hiddenmenu{
+
+  padding-left: 0;
+}
+.lt_main .breadcrumb li.active a{
+  color:#212B31;
+}
+.lt_main .lt_content{
+  width: 100%;
+}
+.lt_main .lt_content .chart_right,
+.lt_main .lt_content .chart_left{
+  width: 48%;
+  height: 400px;
+  background-color: skyblue;
+}

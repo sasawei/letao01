@@ -22,7 +22,10 @@ $(function () {
             min:2,
             max:12,
             message:'用户名长度必须在2到12位之间'
-          }
+          },
+         callback:{
+           message:'用户名错误'
+         }
         }
       },
        password:{
@@ -34,6 +37,9 @@ $(function () {
             min:2,
             max:12,
             message:'密码长度必须在2到12位之间'
+          },
+          callback:{
+            message:'密码错误'
           }
         }
       }
@@ -55,11 +61,14 @@ $(function () {
       success:function(info){
         console.log(info)
         if(info.error == 1000){
-          alert('用户名不存在')
+        
+           //更新表单状态校验
+   $('#form').data('bootstrapValidator').updateStatus('username','INVALID','callback')
           return
         }
         if(info.error == 1001){
-          alert('用户名不存在')
+      
+          $('#form').data('bootstrapValidator').updateStatus('password','INVALID','callback')
           return
         }
         if(info.success){
@@ -75,4 +84,8 @@ $(function () {
      var validator = $('#form').data('bootstrapValidator')
      validator.resetForm()
    })
+
+//进度条功能
+
+  
 })
