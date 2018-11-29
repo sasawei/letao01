@@ -132,7 +132,12 @@
             <td>正常</td>
 
             <td>
+              {{if v.isDelete == 1}}
               <button class="btn btn-danger">禁用</button>
+              {{/if}}
+              {{if v.isDelete == 0}}
+              <button class="btn btn-primary">激活</button>
+              {{/if}}
             </td>
           </tr>
        

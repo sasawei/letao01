@@ -7,7 +7,7 @@ $(function(){
       pageSize:5
     },
     success:function(info){
-      // console.log(info)
+      console.log(info)
       var obj ={
         list:info.rows
       }
