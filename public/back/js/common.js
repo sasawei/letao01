@@ -6,7 +6,7 @@ $(document).ajaxStart(function(){
 $(document).ajaxStop(function(){
   setTimeout(function(){
     NProgress.done();
-  },100000)
+  },1000)
 })
 
 
