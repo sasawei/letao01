@@ -30,7 +30,7 @@
               <span>用户管理</span>
             </a>
           </li>
-          <li >
+          <li>
             <a href="javascript:;" class="cate">
               <i class="glyphicon glyphicon-list"></i>
               <span>分类管理</span>
@@ -45,7 +45,7 @@
             </div>
           </li>
           <li>
-            <a href="product.html"  >
+            <a href="product.html">
               <i class="glyphicon glyphicon-tags"></i>
               <span>商品管理</span>
             </a>
@@ -55,56 +55,135 @@
     </div>
 
     <div class="lt_topbar">
-      <a href="#" class ="icon_left pull-left">
-      <i class="glyphicon glyphicon-align-justify"></i>
-    </a>
-    <a href="#" class ="icon_right pull-right">
+      <a href="#" class="icon_left pull-left">
+        <i class="glyphicon glyphicon-align-justify"></i>
+      </a>
+      <a href="#" class="icon_right pull-right">
         <i class="glyphicon glyphicon-log-out"></i>
       </a>
     </div>
     <div class="lt_main">
       <div class="container-fluid mt-20">
-          <ol class="breadcrumb">
-              <li><a href="#">管理系统</a></li>
-              <li class="active"><a href="#">用户管理</a></li>
-             
-            </ol>
+        <ol class="breadcrumb">
+          <li><a href="#">管理系统</a></li>
+          <li><a href="#">分类管理</a></li>
+          <li class="active"><a href="#">二级分类</a></li>
+        </ol>
+        <!--分类管理  -->
+        <button class="btn btn-default" id="secondBtn">添加分类</button>
+        <!-- 表格 -->
+        <table class="table table-bordered table-hover mt-20">
+          <thead>
+
+            <th>序号</th>
+            <th>一级分类名</th>
+            <th>二级分类名称</th>
+            <th>二级分类LOGO</th>
+          </thead>
+          <tbody>
+            <!-- 挖个坑 -->
+          </tbody>
+        </table>
+
+        <!-- 分页的位置 -->
+        <div class="pull-right">
+          <ul id="paginator"></ul>
+        </div>
       </div>
     </div>
   </div>
+
+
+
+
 
 
   <!-- 引入模态框 -->
   <!-- Button trigger modal -->
-<!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
     Launch demo modal
   </button> -->
-  
+
   <!-- Modal -->
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal fade" id="secondModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm">
       <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">温馨提示</h4>
-        </div>
-        <div class="modal-body red">
-          <i class="glyphicon glyphicon-info-sign"></i>
-          <span>您确定要退出后台管理系统吗？</span>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-          <button type="button" class="btn btn-primary btn-logout">退出</button>
-        </div>
+        <form id="form">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">添加分类</h4>
+          </div>
+          <div class="modal-body">
+
+            <div class="form-group">
+              <!-- 隐藏域 -->
+              <input type="hidden" name="categoryId">
+
+              <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+                  aria-expanded="true">
+                  <span class="firstDropdown"> 请选择一级分类 </span>
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                  <!-- 挖个坑 -->
+
+                </ul>
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="brandName" placeholder="请输入二级分类">
+            </div>
+            <div class="form-group">
+              <label for="addFile" class="btn btn-default">上传图片</label>
+              <input type="file" id="addFile" style="display:none" name="pic1" data-url="/category/addSecondCategoryPic">
+            </div>
+            <div class="form-group">
+              <!-- 隐藏域 -->
+              <input type="hidden" name="brandLogo">
+              <img src="./images/none.png" alt="" style="width:80px" id="picImg">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            <button type="submit" class="btn btn-primary btnconfirm">确定</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
+
+  <!-- 模板引擎 -->
+  <script type="text/html" id="secondTmp">
+    {{each rows v i}}
+    <tr>
+      <td>{{i+1+(page-1)*size}}</td>
+      <td>{{v.categoryName}}</td>
+      <td>{{v.brandName}}</td>
+      <td>
+        <img src="{{v.brandLogo}}" alt="" style="height:50px">
+      </td>
+      
+    {{/each}}
+</script>
+
+  <script type="text/html" id="secondTmp2">
+    {{each rows v i}}
+  <li><a  tabindex="-1" href="#" class="categoryImg" data-id="{{v.id}}">{{v.categoryName}}</a></li>
+  {{/each}}
+</script>
+
   <script src="./lib/jquery/jquery.min.js"></script>
   <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
   <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
   <script src="./lib/nprogress/nprogress.js"></script>
+  <script src="./lib/artTemplate/template-web.js"></script>
+  <script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+  <script src="./lib/jquery-fileupload/jquery.ui.widget.js"></script>
+  <script src="./lib/jquery-fileupload/jquery.fileupload.js"></script>
   <script src="./js/isLogin.js"></script>
-   <script src="./js/common.js"></script>
+  <script src="./js/common.js"></script>
+  <script src="./js/second.js"></script>
 </body>
 
 </html>
